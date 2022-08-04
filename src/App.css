@@ -1,38 +1,20 @@
-.App {
-  text-align: center;
+.bg-gradient {
+  background: rgb(5, 54, 48);
+  background: radial-gradient(circle, rgba(5, 54, 48, 1) 43%, rgba(4, 30, 27, 1) 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.terminalBg {
+  background: linear-gradient(248.59deg, rgba(217, 217, 217, 0.21) 1.18%, rgba(217, 217, 217, 0.0315) 110.98%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 1px 62px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(70px);
+  border-radius: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btnBg {
+  background: linear-gradient(248.59deg, rgba(217, 217, 217, 0.21) 1.18%, rgba(217, 217, 217, 0.0315) 110.98%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 1px 62px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(70px);
+  border-radius: 16px;
 }
