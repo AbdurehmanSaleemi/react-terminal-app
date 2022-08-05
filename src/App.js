@@ -116,16 +116,22 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let errorFound = true;
     if (command === 'saleemi --help') {
       setShowHelp(true);
+      errorFound = false;
     }
     else if (command !== '') {
       for (let i = 0; i < allCommands.length; i++) {
         if (command === allCommands[i].command) {
-          setResult(allCommands[i].result);
           setShowResult(true);
+          setResult(allCommands[i].result);
+          errorFound = false;
         }
       }
+    }
+    if (errorFound) {
+      setError(true);
     }
   }
 
@@ -168,6 +174,7 @@ function App() {
                 {showResult && <h1 className='text-2xl text-yellow-100 font- mr-8 leading-loose'>{result}</h1>}
               </div>
             </div>
+            <p className='flex flex-col text-green-200/30 font-bold justify-center h-3/4'>v1.0</p>
           </div>
           <div className='col-span-1 row-span-1 w-full h-full'>
             <div className='flex flex-col justify-around h-full w-full'>
