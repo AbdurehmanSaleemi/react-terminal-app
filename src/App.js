@@ -148,7 +148,7 @@ function App() {
   return (
     <div className="App">
       <div className="lg:hidden xl:hidden mblScrn flex h-screen w-screen items-center justify-center">
-        <h1 className='text-xl text-center text-green-200 text-bold uppercase tracking-wider'>Mobile and Tables are not supported yet :(</h1>
+        <h1 className='text-xl text-center text-green-200 text-bold uppercase tracking-wider'>Mobile and Tablets are not supported yet :(</h1>
       </div>
       <div className='h-screen w-screen bg-gradient p-24 hidden lg:flex flex-auto overflow-hidden antialiased'>
         <div className='grid grid-cols-5 gap-12 w-full h-full'>
