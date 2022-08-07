@@ -56,7 +56,7 @@ function App() {
     {
       id: 2,
       command: 'saleemi --portfolio',
-      result: "Visit my portfolio: https://github.com/AbdurehmanSaleemi",
+      result: "https://github.com/AbdurehmanSaleemi",
     },
     {
       id: 3,
@@ -101,37 +101,45 @@ function App() {
   const [result, setResult] = useState('');
   const [helpShow, setShowHelp] = useState(false);
   const [showResult, setShowResult] = useState(false);
+  let showCmndResult = false;
+  let errorFound = true;
 
   const handleCommand = (e) => {
     setCommand(e.target.value);
   }
 
   useEffect(() => {
-    //reset everything
     setResult('');
-    setError(false);
     setShowHelp(false);
     setShowResult(false);
-  }, [command]);
+    showCmndResult = false;
+  }, [showCmndResult]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let errorFound = true;
+    showCmndResult = false;
+
     if (command === 'saleemi --help') {
+      setError(false);
       setShowHelp(true);
-      errorFound = false;
+      setShowResult(false);
+      return;
     }
     else if (command !== '') {
+      setShowHelp(false);
       for (let i = 0; i < allCommands.length; i++) {
         if (command === allCommands[i].command) {
+          setError(false);
           setShowResult(true);
           setResult(allCommands[i].result);
-          errorFound = false;
+          showCmndResult = true;
+        }else if (i == allCommands.length - 1 && showCmndResult === false) {
+          setError(true);
+          setShowResult(false);
+          showCmndResult = false;
         }
       }
-    }
-    if (errorFound) {
-      setError(true);
+      return;
     }
   }
 
@@ -139,13 +147,16 @@ function App() {
 
   return (
     <div className="App">
+      <div className="lg:hidden xl:hidden mblScrn flex h-screen w-screen items-center justify-center">
+        <h1 className='text-2xl text-green-200 text-bold uppercase tracking-wider'>Mobile and Tables are not supported yet </h1>
+      </div>
       <div className='h-screen w-screen bg-gradient p-24 hidden lg:flex flex-auto overflow-hidden antialiased'>
         <div className='grid grid-cols-5 gap-12 w-full h-full'>
           <div className='col-span-1 row-span-2'>
             <div className='flex flex-col justify-evenly items-start  h-full'>
               <div className='flex flex-col justify-center items-start space-y-2 h-auto w-auto'>
                 <div><h1 className='text-green-200 text-6xl text-left font-bold'>SALEEMIX</h1></div>
-                <div><h1 className='text-green-200/30 text-[0.87rem] text-left uppercase tracking-wider font-normal'>Written in ReactJS & TailwindCSS</h1></div>
+                <div><h1 className='text-green-200/30 text-[0.865rem] text-left uppercase tracking-wider font-normal'>Written in ReactJS & TailwindCSS</h1></div>
               </div>
               <div className='flex flex-col justify-center items-start space-y-2 h-auto mt-10'>
                 <div className='mb-2 text-green-200/90 uppercase text-3xl font-bold'>disclaimer </div>
@@ -174,7 +185,6 @@ function App() {
                 {showResult && <h1 className='text-2xl text-yellow-100 font- mr-8 leading-loose'>{result}</h1>}
               </div>
             </div>
-            <p className='flex flex-col text-green-200/30 font-bold justify-center h-3/4'>v1.0</p>
           </div>
           <div className='col-span-1 row-span-1 w-full h-full'>
             <div className='flex flex-col justify-around h-full w-full'>
