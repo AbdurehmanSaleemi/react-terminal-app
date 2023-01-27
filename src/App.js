@@ -143,7 +143,7 @@ function App() {
     }
   }
 
-  const disclaimer = "This project is built purely for learning purposes so the information provided here can be wrong. No part of this Application comes under any sort of free liscence. You can take inspiration from it but cannot copy its code and design.";
+  const disclaimer = "This project is built purely for learning purposes so the information provided here can be wrong. No part of this Application comes under any sort of free license. You can take inspiration from it but cannot copy its code and design.";
 
   return (
     <div className="App">
